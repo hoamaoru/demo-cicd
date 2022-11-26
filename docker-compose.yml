@@ -1,22 +1,18 @@
 version: '3.1'
 
 services:
-  democicd:
-    build:
-      context: ./docker/php
-      dockerfile: Dockerfile
+  web:
+    build: ./docker/php
     ports:
-      - "8000:80"
+      - 8000:80
     volumes:
-      - ./laravel:/var/www/demo-cicd.com.vn
-    container_name: c-democicd
-    restart: always
-    extra_hosts:
-      - "demo-cicd.com.vn:127.0.0.1"
+      - ./laravel:/var/www/html
+      - ./docker/php.ini:/usr/local/etc/php/php.ini
+    working_dir: /var/www/html
     environment:
-      APACHE_DOCUMENT_ROOT: /var/www/
-      APACHE_DOCUMENT_DEMOCICD: /var/www/demo-cicd.com.vn/public
       APP_ENV: local
+    container_name: web
+    restart: always
 
 networks:
   default:
