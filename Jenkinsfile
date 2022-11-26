@@ -1,5 +1,5 @@
 stages {
-        stage('Build12322223') { 
+        stage('Build') { 
             steps { 
                 sh 'docker ps' 
             }
