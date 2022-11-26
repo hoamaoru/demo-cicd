@@ -1,0 +1,9 @@
+#!/bin/bash
+
+chown -R root:www-data /var/www/*/storage
+chmod -R 775 /var/www/*/storage
+
+for d in /var/www/*/ ; do (cd "$d" && composer install); done
+
+a2ensite *
+exec apache2-foreground
