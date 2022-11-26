@@ -1,5 +1,5 @@
 stages {
-        stage('Buil2d') { 
+        stage('Build') { 
             steps { 
                 sh 'docker ps' 
             }
