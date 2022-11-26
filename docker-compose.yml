@@ -8,14 +8,14 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - ./laravel:/var/www/demo-cicd.local
+      - ./laravel:/var/www/demo-cicd.com.vn
     container_name: c-democicd
     restart: always
     extra_hosts:
-      - "demo-cicd.local:127.0.0.1"
+      - "demo-cicd.com.vn:127.0.0.1"
     environment:
       APACHE_DOCUMENT_ROOT: /var/www/
-      APACHE_DOCUMENT_DEMOCICD: /var/www/demo-cicd.local/public
+      APACHE_DOCUMENT_DEMOCICD: /var/www/demo-cicd.com.vn/public
       APP_ENV: local
 
 networks:
