@@ -1,18 +1,17 @@
 stages {
         stage('Build') { 
             steps { 
-                sh 'make' 
+                sh 'docker ps' 
             }
         }
         stage('Test'){
             steps {
-                sh 'make check'
-                junit 'reports/**/*.xml' 
+                sh 'docker ps -a' 
             }
         }
         stage('Deploy') {
             steps {
-                sh 'make publish'
+                sh 'docker --version'
             }
         }
     }
