@@ -6,7 +6,7 @@ stages {
         }
         stage('Test'){
             steps {
-                sh 'docker ps -a' 
+                sh 'docker ps' 
             }
         }
         stage('Deploy') {
