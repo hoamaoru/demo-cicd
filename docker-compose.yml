@@ -1,14 +1,13 @@
 version: '3.1'
 
 services:
-  webserver:
+  democicd:
     build:
       context: ./docker/php
       dockerfile: Dockerfile
     ports:
       - "8000:80"
     volumes:
-      # Monolith API src
       - ./laravel:/var/www/html
     container_name: c-democicd
     restart: always
@@ -17,6 +16,9 @@ services:
     environment:
       APACHE_DOCUMENT_ROOT: /var/www/html
       APACHE_DOCUMENT_DEMOCICD: /var/www/html/public
-      # XDEBUG_CONFIG: client_host=host.docker.internal #(uncomment when needed Debug)
-      # PHP_IDE_CONFIG: serverName=docker-server #(uncomment when needed Debug)
       APP_ENV: local
+
+networks:
+  default:
+    name: docker-network
+    external: true
