@@ -13,6 +13,19 @@ services:
       APP_ENV: local
     container_name: demo-cicd
     restart: always
+    
+  demo-cicd-8002:
+    build: ./docker/php
+    ports:
+      - 8002:80
+    volumes:
+      - ./laravel:/var/www/html
+      # - ./docker/php.ini:/usr/local/etc/php/php.ini
+    working_dir: /var/www/html
+    environment:
+      APP_ENV: local
+    container_name: demo-cicd-8002
+    restart: always
 
 networks:
   default:
