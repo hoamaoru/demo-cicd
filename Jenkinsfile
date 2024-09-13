@@ -1,17 +1,20 @@
-stages {
-        stage('Build12') { 
-            steps { 
-                sh 'docker ps' 
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
             }
         }
-        stage('Test'){
+        stage('Test') {
             steps {
-                sh 'docker ps' 
+                echo 'Testing..'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'docker --version'
+                echo 'Deploying....'
             }
         }
     }
